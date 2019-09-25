@@ -4,15 +4,15 @@
 	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
-	<configuration-properties doc:name="Configuration properties" doc:id="a33519a0-9912-408b-b36e-feec9521f718" file="${mule.env}.properties" />
+	<configuration-properties doc:name="Configuration properties" doc:id="a33519a0-9912-408b-b36e-feec9521f718" file="${env}.yaml" />
 	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="3032c813-abca-43f4-bb38-3d9f15158e35" >
 		<http:listener-connection host="0.0.0.0" port="8081" />
 	</http:listener-config>
-	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="11265bd4-2ce9-40cc-b3aa-806a3507d3c1" basePath="${mule.env.basePath}" >
-		<http:request-connection host="${mule.env.host}" />
+	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="11265bd4-2ce9-40cc-b3aa-806a3507d3c1" basePath="${http.path}" >
+		<http:request-connection host="${http.host}" />
 	</http:request-config>
 	<flow name="helloworldFlow" doc:id="e7fbb306-950c-4c7a-b600-ca7640c52eea" >
 		<http:listener doc:name="Listener" doc:id="e9968809-db9e-450f-82c7-b3dcd8892e47" config-ref="HTTP_Listener_config" path="/testenv"/>
-		<http:request method="GET" doc:name="Request" doc:id="79bf6d35-d129-4949-8355-3cbeeb704d88" config-ref="HTTP_Request_configuration"/>
+		<http:request method="GET" doc:name="Request" doc:id="79bf6d35-d129-4949-8355-3cbeeb704d88" config-ref="HTTP_Request_configuration" path="/"/>
 	</flow>
 </mule>

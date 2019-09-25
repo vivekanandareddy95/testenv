@@ -1,0 +1,3 @@
+http:
+  host: "hello-firstrxr.us-w2.cloudhub.io"
+  path: "/hellofirst"
